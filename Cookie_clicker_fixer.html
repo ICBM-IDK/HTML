@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cookie Clicker</title>
+    <!-- LINK STYLE SHEET HERE -->
+     <link rel="stylesheet" href="Body_of_the_cookie_gods.css">
+</head>
+
+<body>
+
+    <h1>Cookie Clicker</h1>
+
+    <!-- GIVE THE H2 BELOW THE APPROPRIATE ID -->
+    <h2 id="count">0</h2>
+    <input type="submit" value="Add" onclick="increase()">
+    <input type="submit" value="Subtract" onclick="decrease()">
+    <input type="submit" value="Auto Clicker" onclick="auto_clicker()">
+    <input type="submit" value="stoppp" onclick="stop_auto_clicker()">
+
+    <!-- CREATE TWO BUTTONS (ADD, SUBTRACT) THAT CALL increase() and decrease() ON CLICK -->
+
+    <p id="message">Start clicking!</p>
+
+    <!-- LINK JAVASCRIPT FILE HERE -->
+
+</body>
+<script>
+    const hexa = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"];
+    let count = 0;
+    let auto_clicking = false;
+
+function increase() {
+    count++;
+    updateScreen();
+}
+
+function decrease() {
+    count--;
+    updateScreen();
+}
+
+function updateScreen() {
+
+    document.getElementById("count").innerHTML = count;
+    if (count > 50){
+        var number1 = Math.floor(Math.random() * 16); 
+        number1 = hexa[number1];
+
+        var number2 = Math.floor(Math.random() * 16);
+        number2 = hexa[number2];
+
+        var number3 = Math.floor(Math.random() * 16);
+        number3 = hexa[number3];
+
+        var number4 = Math.floor(Math.random() * 16);
+        number4 = hexa[number4];
+
+        var number5 = Math.floor(Math.random() * 16);
+        number5 = hexa[number5];
+
+        var number6 = Math.floor(Math.random() * 16);
+        number6 = hexa[number6];
+
+        document.body.style.backgroundColor = "#" + parseFloat(number1.toString() + number2.toString() + number3.toString() + number4.toString() + number5.toString() + number6.toString());
+
+    }
+
+
+    // If count is higher than 25 change the background colour to gold
+    else if (count > 25 && count <= 50) {
+        document.getElementById("message").innerHTML = "Amazing!";
+        document.body.style.backgroundColor = "gold";
+    }
+    // If the count is greater than or equal to 10 change the background colour to green
+    else if (count >= 10 && count <= 50) {
+        document.getElementById("message").innerHTML = "Doing well!";
+        document.body.style.backgroundColor = "lightgreen";
+    }
+    // If the count is greater than or equal to 0 change the background colour to lightblue
+    else if (count >= 0 && count <= 50) {
+        document.getElementById("message").innerHTML = "Keep clicking!";
+        document.body.style.backgroundColor = "lightblue";
+    }
+    // Change the backgroud colour to red
+    else if (count < 0) {
+        document.getElementById("message").innerHTML = "Too low!";
+        document.body.style.backgroundColor = "red";
+    }
+}
+async function stop_auto_clicker() {
+     auto_clicking = false;
+}
+async function auto_clicker() {
+     auto_clicking = true;
+    while (auto_clicking == true) {
+        await new Promise(resolve => setTimeout(resolve, 0.001)); // Wait for 1 second
+        increase(); // Call the increase function
+    }
+}
+</script>
+</html>
