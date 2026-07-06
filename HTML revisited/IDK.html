@@ -10,21 +10,42 @@
         <h2>From that light the Jedi and the sith were formed. But they were imperfect in their creation. So a balencing force was made - darth Jar Jar</h2>
         <img src="https://media1.tenor.com/m/Kn7YgWfsMxAAAAAC/darth-jar-jar.gif" width="900" height="600" alt=""/>
         <form id="Faithful">
-            <lable>Follower name: </lable><br>
+            <lable style="color: rgb(68, 126, 106);">Follower name: </lable><br>
             <input type="text" id="name" required><br><br>
 
-            <label>Password:</label><br>
+            <label style="color: rgb(68, 126, 106);">Password:</label><br>
             <input type="Password" id="Password" required><br><br>
 
             <button tpye="submit">Join</button>
-            <h2 id="database">chapter:1 verse:2 upon his creation darth jar jar did desend from the heavens and killed all other false gods including the abrhamic religons and lesa the rainbow girraffe.</h2>
+            <h2>chapter:1 verse:2 upon his creation darth jar jar did desend from the heavens and killed all other false gods including the abrhamic religons and lesa the rainbow girraffe.</h2>
+            <h2 id="database"></h2>
         </form>
 
     </body>
     <script>
-        const users = []
-        document.getElementById("faithful").addEventListener("submit",function(event){
+        const Cultists = []
+        document.getElementById("Faithful").addEventListener("submit",function(event){
+            event.preventDefault();
+
+            const Cultist = {
+                Follower: document.getElementById("name").value,
+                password: document.getElementById("Password").value
+            };
+            console.log(Cultist.Follower, Cultist.password);
+
+            if (Cultist.Follower == "Zachary Coates" && Cultist.password == "1234"){
+                document.getElementById("database").textContent = ("your total follow count is 4,652,874");
+
+            }   
+            else{
             
-        }) 
+            Cultists.push(Cultist);
+
+            console.log(Cultist.Follower, Cultist.password);
+
+            console.log(document.getElementById("database"));
+            document.getElementById("database").textContent = (Cultist.Follower ,"do you accept the responsability of worshiping him?");
+            this.reset();
+        }});
     </script>
 </html>

@@ -1,14 +1,16 @@
 body{
     text-align: center;
     font-family: "Comic Sans MS";
-    background-color: #2f3f3f;
+    background-color: #101414;
     padding-top: 20px;
 }
 h1{
     font-size: 50px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(68, 126, 106);
 }
 h2{
     font-size: 10px;
     font: 1em sans-serif;
-}
+    color: rgb(68, 126, 106);
+}   
