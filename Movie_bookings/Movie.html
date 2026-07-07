@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cinema Ticket Booking</title>
+</head>
+<body>
+
+    <h1>Cinema Ticket Booking</h1>
+
+    <form id="bookingForm">
+
+        <label>Customer Name:</label><br>
+        <input type="text" id="customer" required><br><br>
+
+        <label>Film Title:</label><br>
+        <input type="text" id="film" required><br><br>
+
+        <label>Number of Tickets:</label><br>
+        <input type="number" id="tickets" min="1" required><br><br>
+
+        <label>Ticket Price (£):</label><br>
+        <input type="number" id="price" min="0" step="0.01" required><br><br>
+
+        <button type="submit">Book Tickets</button>
+
+    </form>
+
+    <h2>Bookings</h2>
+
+    <h3 id="summary"></h3>
+
+    <script>
+
+        // Simulated database
+        const bookings = [];
+
+        document.getElementById("bookingForm").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const customer = document.getElementById("customer").value;
+            const film = document.getElementById("film").value;
+            const tickets = Number(document.getElementById("tickets").value);
+            const price = Number(document.getElementById("price").value);
+
+            const total = tickets * price;
+
+            const booking = {
+                customer: customer,
+                film: film,
+                tickets: tickets,
+                price: price,
+                total: total
+            };
+
+            // Store booking
+            bookings.push(booking);
+
+            // Calculate total revenue
+            let revenue = 0;
+
+            for (let booking of bookings) {
+                revenue += booking.total;
+            }
+
+            document.getElementById("summary").innerHTML =
+                `Total Bookings: ${bookings.length}<br>
+                 Total Revenue: £${revenue.toFixed(2)}`;
+
+            // Clear the form
+            this.reset();
+
+        });
+
+    </script>
+
+</body>
+</html>
