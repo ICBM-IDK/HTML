@@ -29,3 +29,24 @@ input{
     margin-bottom: 15px;
     border: 1px solid #cccccc
 }
+button{
+    width: 100px;
+    padding: 10px;
+    background-color: #0a396e;
+    color: white;
+    border:none;
+}
+button:hover{
+    background-color: #3d70af;
+}
+.bookings-header{
+    text-align: center;
+    color: #1e3a5f;
+}
+#summary{
+    background-color: white;
+    width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border:1px solid #cccccc;
+}
